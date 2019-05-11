@@ -26,6 +26,6 @@ int main()
 		verification = 0; sum = 0; j = 0;
 	}
 	if (verification==1) cout << verification << " " << i << " " << j - 1; // Print the verification, the index of 2 extemity of the qualified array
-	else cout << verification;					       // Print h = 0 if such a sub-array exists
+	else cout << verification;					       // Print verification = 0 if such a sub-array doesn't exist
 	delete p;
 }
