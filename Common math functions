@@ -1,0 +1,21 @@
+// Check prime number using mod 6
+bool is_prime(int n)
+{
+	if (n == 2 || n == 3) return true;
+	if (n == 1 || n % 2 == 0 || n % 3 == 0) return false;
+	int sqrt_n = sqrt(n);
+	int k = 1;
+	while ((6 * k - 1 < sqrt_n) || (6 * k + 1 < sqrt_n))
+	{
+		if (n % (6 * k - 1) == 0 || n % (6 * k + 1) == 0) return false;
+	}
+	return true;
+}
+
+// Fast exponentiation with optional module
+#define sq(x) (x)*(x)
+int power (int a, int n, int mod) {
+    if (n==0) return 1;
+    if (n%2==0) return sq(power(a,n/2,mod))%mod;
+    else return (a*sq(power(a,(n-1)/2,mod)))%mod; 
+}
