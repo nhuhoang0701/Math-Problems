@@ -1,4 +1,5 @@
-// Check if a string of parentheses is properly nested
+/* Check if a string of parentheses is properly nested */
+// Solution 1
 bool check_parentheses(char *s) {
     int count =0;
     int len = strlen(s);
@@ -10,4 +11,28 @@ bool check_parentheses(char *s) {
         }
     }
     return (count==0)?true:false;
+}
+
+// Using stack
+int main()
+{
+   string s;
+   cin>>s;
+   stack<int> parens;
+   for (int i=0; i<s.length();i++) {
+      if (s[i]==')') {
+         if (parens.size() == 0) {
+            cout<<"Found unmatched parentheses at "<<i<<" position";
+            exit(1);
+         }
+         else parens.pop();
+      }
+      else parens.push(i);
+   }
+   if (parens.size() != 0) {
+      while (parens.size()>1) parens.pop();
+      cout<<"Found unmatched parentheses at "<<parens.top()<<" position";
+      exit(1);
+   }
+   else cout<<"Perfectly nested";
 }
